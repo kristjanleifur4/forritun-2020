@@ -1,10 +1,30 @@
-num_int = int(input("Input a number: "))    # Do not change this line
-# Fill in the missing code
-max_int = 0
+#Your function definition goes here
+def valid_date(date_str):
+    if len(date_str) == 8:
+        if not any (ch == "." for ch in date_str):
+            return False
+        if not any (ch.isdigit() for ch in date_str):
+            return False
+        date_str.split(".")
+        day = int(date_str[:2])
+        month = int(date_str[3:5])
+        year = int(date_str[-2:])
 
-while num_int >= 0:
-    if num_int > max_int:
-        max_int = num_int
-    num_int = int(input("Input a number: ")) 
+        if month.isdigit() == False:
+            return False
+        if day.isdigit() == False:
+            return False
+        if year.isdigit() == False:
+            return False
 
-print("The maximum is", max_int)    # Do not change this line
+
+        if day > 0 and day <= 31 and month >= 1 and month <= 12 and year >= 0 and year <= 99:
+            return True
+    return False
+
+date_str = input("Enter a date: ")
+
+if valid_date(date_str):
+    print("Date is valid")
+else:
+    print("Date is invalid")  

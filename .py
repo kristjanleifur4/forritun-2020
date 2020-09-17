@@ -1,23 +1,22 @@
-#Algorithm
-# the sequence takes the last 3 numbers and adds them together to make a new int
-# this is then repeated for the same number of steps
-n = int(input("Enter the length of the sequence: "))
-counter = 1
-total = 0
-first = 0
-second = 0
-third = 1
+#Your function definition goes here
+def valid_date(date_str):
+    if len(date_str) == 8:
+        for ch in date_str:
+            if ch == "/":
+                return False
+            if ch.isalpha():
+                return False
+        date_str.split(".")
+        day = int(date_str[:2])
+        month = int(date_str[3:5])
+        year = int(date_str[-2:])
+        if day > 0 and day <= 31 and month >= 1 and month <= 12 and year >= 0 and year <= 99:
+            return True
+    return False
 
+date_str = input("Enter a date: ")
 
-while counter <= n:
-    total = first + second + third
-    print(total)
-
-    first = second
-    second = third
-    third = total
-
-    if first == 1 and second == 1:
-        first = 0 
-
-    counter += 1 # Do not change this line
+if valid_date(date_str):
+    print("Date is valid")
+else:
+    print("Date is invalid") 
